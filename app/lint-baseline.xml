@@ -259,7 +259,7 @@ limitations under the License.
 
     <issue id="UnusedResources"
         message="The resource `R.string.duck_logo_description` appears to be unused"
-        errorLine1="    &lt;string name=&quot;duck_logo_description&quot;>Duck Detector logo&lt;/string>"
+        errorLine1="    &lt;string name=&quot;duck_logo_description&quot;>Risk Detector logo&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location file="src/main/res/values/strings.xml" line="3" column="13" />
     </issue>

@@ -134,7 +134,7 @@ fun ContributorNameWordmark(modifier: Modifier = Modifier) {
                     Log.d("DuckSettingsScroll", "wordmark viewport=${it.width}x${it.height}")
                 }
                 .transformable(state = transformState, canPan = { zoom > 1f })
-                .semantics { contentDescription = "Duck Detector" },
+                .semantics { contentDescription = "Risk Detector" },
         ) {
             if (size.width <= 0f || size.height <= 0f) return@Canvas
             val resolvedLayout = layout ?: return@Canvas
@@ -162,7 +162,7 @@ private data class WordmarkLayout(val characters: Path)
 
 private fun buildWordmarkLayout(names: List<String>): WordmarkLayout {
     val letters = Path().apply {
-        addWord("DUCK", RectF(60f, 20f, 940f, 180f))
+        addWord("RISK", RectF(60f, 20f, 940f, 180f))
         addWord("DETECTOR", RectF(40f, 200f, 960f, 345f))
     }
     val region = Region().apply {

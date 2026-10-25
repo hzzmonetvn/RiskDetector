@@ -34,7 +34,6 @@ import com.eltavine.duckdetector.core.ui.AppBuildInfo
 import com.eltavine.duckdetector.core.ui.LocalAppBuildInfo
 import com.eltavine.duckdetector.sdk.DuckDetector
 import com.eltavine.duckdetector.ui.DuckDetectorApp
-import com.eltavine.duckdetector.ui.StartupBootstrapLoadingScreen
 import com.eltavine.duckdetector.ui.appearance.UiAppearanceStore
 import io.github.xiaotong6666.uihelper.mode.UiMode
 import kotlinx.coroutines.launch
@@ -64,22 +63,15 @@ class MainActivity : ComponentActivity() {
         setContentView(root)
         val appearanceStore = UiAppearanceStore.getInstance(applicationContext)
         composeView.setContent {
-            // Resolve the saved mode before rendering the app, otherwise a saved Material choice
-            // briefly flashes MIUIX on every cold start.
-            val uiMode by produceState<UiMode?>(initialValue = null, key1 = appearanceStore) {
+            val uiMode by produceState(initialValue = UiMode.Material, key1 = appearanceStore) {
                 appearanceStore.mode.collect { value = it }
             }
             val scope = rememberCoroutineScope()
             CompositionLocalProvider(LocalAppBuildInfo provides appBuildInfo) {
-                val resolvedMode = uiMode
-                if (resolvedMode == null) {
-                    StartupBootstrapLoadingScreen()
-                } else {
-                    DuckDetectorTheme(uiMode = resolvedMode) {
-                        DuckDetectorApp(onUiModeChange = { selected ->
-                            scope.launch { appearanceStore.setMode(selected) }
-                        })
-                    }
+                DuckDetectorTheme(uiMode = uiMode) {
+                    DuckDetectorApp(onUiModeChange = { selected ->
+                        scope.launch { appearanceStore.setMode(selected) }
+                    })
                 }
             }
         }

@@ -54,8 +54,8 @@ class ScanNotificationConsentStore private constructor(
         }
         .map { prefs ->
             ScanNotificationPrefs(
-                notificationsPrompted = prefs[KEY_NOTIFICATIONS_PROMPTED] ?: false,
-                liveUpdatesPrompted = prefs[KEY_LIVE_UPDATES_PROMPTED] ?: false,
+                notificationsPrompted = prefs[KEY_NOTIFICATIONS_PROMPTED] ?: true,
+                liveUpdatesPrompted = prefs[KEY_LIVE_UPDATES_PROMPTED] ?: true,
             )
         }
 

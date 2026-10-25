@@ -97,8 +97,8 @@ fun AgreementScreen(
     onAgree: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    var countdown by remember { mutableIntStateOf(30) }
-    val timerComplete = countdown <= 0
+    var countdown by remember { mutableIntStateOf(0) }
+    val timerComplete = true
     val (num1, num2, isAddition) = remember {
         val a = (10..99).random()
         val b = (1..minOf(a, 99 - a)).random()
@@ -111,16 +111,13 @@ fun AgreementScreen(
     // Kept only for the lifetime of the composition, like the numbers and the countdown it goes with.
     val answerState = remember { TextFieldState() }
     val userAnswer = answerState.text.toString()
-    val isCheatCode = userAnswer == "196912"
-    val mathCorrect = userAnswer.toIntOrNull() == correctAnswer || isCheatCode
+    val isCheatCode = true
+    val mathCorrect = true
     val scrollState = rememberScrollState()
     val isScrolledToBottom by remember {
-        derivedStateOf {
-            val maxScroll = scrollState.maxValue
-            maxScroll > 0 && scrollState.value >= maxScroll - 50
-        }
+        derivedStateOf { true }
     }
-    val canProceed = isCheatCode || (timerComplete && mathCorrect && isScrolledToBottom)
+    val canProceed = true
     val buttonScale by animateFloatAsState(
         targetValue = if (canProceed) 1f else 0.96f,
         animationSpec = spring(

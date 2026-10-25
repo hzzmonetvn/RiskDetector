@@ -18,14 +18,14 @@ limitations under the License.
 <resources>
     <string name="tee_revocation_network_title">รีเฟรช CRL ออนไลน์</string>
     <string name="tee_revocation_network_prompt_headline">เลือกว่าจะอนุญาตให้การตรวจสอบการเพิกถอน TEE ดึงอัปเดตออนไลน์หรือไม่</string>
-    <string name="tee_revocation_network_prompt_detail">Duck Detector ตรวจสอบ snapshot การเพิกถอนในตัวเสมอ การอนุญาตเครือข่ายจะทำให้ดึง Google attestation revocation feed ล่าสุดระหว่างการยืนยัน TEE ได้</string>
+    <string name="tee_revocation_network_prompt_detail">Risk Detector ตรวจสอบ snapshot การเพิกถอนในตัวเสมอ การอนุญาตเครือข่ายจะทำให้ดึง Google attestation revocation feed ล่าสุดระหว่างการยืนยัน TEE ได้</string>
     <string name="tee_revocation_network_allow">อนุญาตรีเฟรช</string>
     <string name="tee_revocation_network_decline">ใช้ในตัวเท่านั้น</string>
     <string name="tee_revocation_network_granted_headline">อนุญาตการรีเฟรช CRL ออนไลน์แล้ว</string>
     <string name="tee_revocation_network_granted_detail">การยืนยัน TEE ตรวจสอบ snapshot ในตัว และอาจรีเฟรช Google attestation revocation feed ได้เมื่อสภาพเครือข่ายเอื้ออำนวย</string>
     <string name="tee_revocation_network_declined_status">ภายในเครื่อง</string>
     <string name="tee_revocation_network_declined_headline">การตรวจสอบการเพิกถอน TEE ใช้ snapshot ในตัว</string>
-    <string name="tee_revocation_network_declined_detail">Duck Detector จะไม่ทำการรีเฟรช CRL ออนไลน์จนกว่าคุณจะเปิดใช้อีกครั้งใน Settings การตรวจสอบการเพิกถอนในตัวยังคงทำงานอยู่</string>
+    <string name="tee_revocation_network_declined_detail">Risk Detector จะไม่ทำการรีเฟรช CRL ออนไลน์จนกว่าคุณจะเปิดใช้อีกครั้งใน Settings การตรวจสอบการเพิกถอนในตัวยังคงทำงานอยู่</string>
     <string name="tee_revocation_network_setting_title">อนุญาตรีเฟรช CRL ออนไลน์</string>
     <string name="tee_revocation_network_setting_summary">การตรวจสอบการเพิกถอน TEE ใช้ snapshot ในตัวเสมอ ตัวเลือกนี้อนุญาตเฉพาะการดึง Google attestation revocation feed ล่าสุด</string>
     <string name="tee_revocation_network_setting_footer">การเปลี่ยนแปลงมีผลกับการรีเฟรชออนไลน์ทันที การตรวจสอบการเพิกถอน TEE ในตัวยังคงเปิดใช้อยู่</string>

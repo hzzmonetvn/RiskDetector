@@ -34,7 +34,7 @@ limitations under the License.
     <string name="update_download_retry">重試</string>
     <string name="update_install">安裝</string>
     <string name="github_acceleration_dialog_title">開啟 GitHub 加速？</string>
-    <string name="github_acceleration_dialog_message">您目前所在地區存取 GitHub 可能較為困難。開啟後，Duck Detector 會透過第三方加速服務 gh-proxy.com 檢查並下載 Nightly 更新。之後可隨時在設定中變更。</string>
+    <string name="github_acceleration_dialog_message">您目前所在地區存取 GitHub 可能較為困難。開啟後，Risk Detector 會透過第三方加速服務 gh-proxy.com 檢查並下載 Nightly 更新。之後可隨時在設定中變更。</string>
     <string name="github_acceleration_dialog_enable">開啟加速</string>
     <string name="github_acceleration_dialog_decline">暫不開啟</string>
 </resources>

@@ -50,7 +50,7 @@ class ScanProgressNotificationFormatter {
             ScanProgressNotificationModel(
                 title = "Scanning $clampedReady/$clampedTotal",
                 text = "${overview.headline} \u00b7 ${overview.summary}",
-                subText = "Duck Detector",
+                subText = "Risk Detector",
                 shortCriticalText = "$clampedReady/$clampedTotal",
                 progressPercent = progressPercent,
             )

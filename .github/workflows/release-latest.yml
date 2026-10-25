@@ -409,7 +409,7 @@ jobs:
 
           release_name="${INPUT_RELEASE_NAME}"
           if [ -z "${release_name}" ]; then
-            release_name="Duck Detector ${VERSION_NAME}"
+            release_name="Risk Detector ${VERSION_NAME}"
           fi
 
           {

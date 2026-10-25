@@ -43,7 +43,7 @@ import io.github.xiaotong6666.uihelper.mode.UiMode
 @Composable
 public fun DuckDetectorTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    uiMode: UiMode = UiMode.Miuix,
+    uiMode: UiMode = UiMode.Material,
     content: @Composable () -> Unit,
 ) {
     val baseScheme = if (darkTheme) DarkMonochromeScheme else LightMonochromeScheme

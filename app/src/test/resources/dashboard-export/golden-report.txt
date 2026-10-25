@@ -1,5 +1,5 @@
 ================================================================================
-                      DUCK DETECTOR — SECURITY SCAN REPORT                      
+                      RISK DETECTOR — SECURITY SCAN REPORT
 ================================================================================
   App Version    : 2026.01.02-0123456789ab (Build 321)
   Build Commit   : 0123456789ab
@@ -672,7 +672,7 @@ Line two 7
 
 # ---- next scenario ----
 ================================================================================
-                      DUCK DETECTOR — SECURITY SCAN REPORT                      
+                      RISK DETECTOR — SECURITY SCAN REPORT
 ================================================================================
   Target Device  : Duck Pond 7 (Android 17, API 37)
   App Version    : 2026.01.02-0123456789ab (Build 321)
@@ -1652,7 +1652,7 @@ Line two 19
 
 # ---- next scenario ----
 ================================================================================
-                      DUCK DETECTOR — SECURITY SCAN REPORT                      
+                      RISK DETECTOR — SECURITY SCAN REPORT
 ================================================================================
   Target Device  : Duck Pond 7 (Android 17, API unknown)
   App Version    : 2026.01.02-0123456789ab (Build 321)
@@ -2319,7 +2319,7 @@ Line two 13
 
 # ---- next scenario ----
 ================================================================================
-                      DUCK DETECTOR — SECURITY SCAN REPORT                      
+                      RISK DETECTOR — SECURITY SCAN REPORT
 ================================================================================
   App Version    : 2026.01.02-0123456789ab (Build 321)
   Build Commit   : 0123456789ab

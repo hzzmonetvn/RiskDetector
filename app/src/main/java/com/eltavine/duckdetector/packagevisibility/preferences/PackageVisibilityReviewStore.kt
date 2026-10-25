@@ -50,7 +50,7 @@ class PackageVisibilityReviewStore private constructor(
         .map { prefs ->
             PackageVisibilityReviewPrefs(
                 restrictedInventoryAcknowledged =
-                    prefs[KEY_RESTRICTED_INVENTORY_ACKNOWLEDGED] ?: false,
+                    prefs[KEY_RESTRICTED_INVENTORY_ACKNOWLEDGED] ?: true,
             )
         }
 

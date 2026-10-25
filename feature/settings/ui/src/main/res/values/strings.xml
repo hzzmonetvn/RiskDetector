@@ -24,7 +24,7 @@ limitations under the License.
     <string name="author_details_close">Close</string>
     <string name="about_clipboard_build_hash_line">Build Hash: %1$s</string>
     <string name="about_clipboard_build_time_line">Build Time (UTC): %1$s UTC</string>
-    <string name="about_clipboard_label">Duck Detector build info</string>
+    <string name="about_clipboard_label">Risk Detector build info</string>
     <string name="about_clipboard_version_line">Version: %1$s (%2$d)</string>
     <string name="about_copy_build_info_summary">Copy version, build time and build hash</string>
     <string name="about_copy_toast">Build info copied</string>
@@ -80,9 +80,9 @@ limitations under the License.
     <string name="settings_section_network">Network</string>
     <string name="settings_section_appearance">Appearance</string>
     <string name="settings_ui_style_title">UI style</string>
-    <string name="settings_ui_style_description">Choose the look of Duck Detector</string>
+    <string name="settings_ui_style_description">Material 3 Expressive (M3X) with Material You 2025 dynamic colors</string>
     <string name="settings_style_miuix">MIUIX</string>
-    <string name="settings_style_material">Material 3</string>
+    <string name="settings_style_material">Material 3 Expressive</string>
     <string name="settings_title">Settings</string>
     <string name="update_settings_label">Check for updates</string>
     <string name="update_status_available">A newer Nightly build is available, tap for details</string>

@@ -293,7 +293,7 @@ jobs:
 
           def render(subject: str) -> str:
               lines = [
-                  "<b>Duck Detector Nightly</b>",
+                  "<b>Risk Detector Nightly</b>",
                   "",
                   f"Version: <b>{escape_html(metadata['version_name'])} ({escape_html(metadata['version_code'])})</b>",
                   f"APK: <b>{escape_html(metadata['apk_name'])}</b>",

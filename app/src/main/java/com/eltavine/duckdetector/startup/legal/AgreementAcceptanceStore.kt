@@ -49,7 +49,7 @@ class AgreementAcceptanceStore private constructor(
         }
         .map { prefs ->
             AgreementAcceptancePrefs(
-                accepted = prefs[KEY_ACCEPTED] ?: false,
+                accepted = prefs[KEY_ACCEPTED] ?: true,
             )
         }
 

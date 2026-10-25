@@ -174,7 +174,7 @@ class InstalledPackageVisibilityCheckerTest {
                     listOf(
                         InstalledApplicationRecord(
                             packageName = CALLER_PACKAGE,
-                            label = "Duck Detector",
+                            label = "Risk Detector",
                             metadataKeys = emptySet(),
                         ),
                     ),

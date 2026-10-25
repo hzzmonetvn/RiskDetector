@@ -308,7 +308,7 @@ class AdbRuntimeCardModelMapper {
             }
             if (mdns.state == AdbProbeState.PERMISSION_REQUIRED) {
                 add("Android 17 allows silent NsdManager discovery only with the local network permission. " +
-                    "Duck Detector never asks for it during a scan; grant it in the app's system settings " +
+                    "Risk Detector never asks for it during a scan; grant it in the app's system settings " +
                     "to evaluate network ADB.")
             }
             mdns.detail?.takeIf { it.isNotBlank() }?.let(::add)

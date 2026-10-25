@@ -24,7 +24,7 @@ limitations under the License.
     <string name="author_details_close">Đóng</string>
     <string name="about_clipboard_build_hash_line">Mã băm build: %1$s</string>
     <string name="about_clipboard_build_time_line">Thời gian build (UTC): %1$s UTC</string>
-    <string name="about_clipboard_label">Thông tin build Duck Detector</string>
+    <string name="about_clipboard_label">Thông tin build Risk Detector</string>
     <string name="about_clipboard_version_line">Phiên bản: %1$s (%2$d)</string>
     <string name="about_copy_build_info_summary">Sao chép phiên bản, thời gian build và mã băm build</string>
     <string name="about_copy_toast">Đã sao chép thông tin build</string>
@@ -70,4 +70,8 @@ limitations under the License.
     <string name="update_status_failed">Không thể kiểm tra GitHub; chạm để thử lại</string>
     <string name="update_status_idle">Kiểm tra GitHub Main Nightly sau khi khởi động lạnh; chạm để kiểm tra ngay</string>
     <string name="settings_section_appearance">Giao diện</string>
+    <string name="settings_ui_style_title">Kiểu giao diện</string>
+    <string name="settings_ui_style_description">Material 3 Expressive (M3X) với màu động Material You 2025</string>
+    <string name="settings_style_miuix">MIUIX</string>
+    <string name="settings_style_material">Material 3 Expressive</string>
 </resources>

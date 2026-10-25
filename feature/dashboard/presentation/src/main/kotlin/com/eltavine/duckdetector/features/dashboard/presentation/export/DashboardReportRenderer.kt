@@ -66,7 +66,7 @@ object DashboardReportRenderer {
         val identity = export.device.identity
         val header = export.header
         appendLine("================================================================================")
-        appendLine("                      DUCK DETECTOR — SECURITY SCAN REPORT                      ")
+        appendLine("                      RISK DETECTOR — SECURITY SCAN REPORT                      ")
         appendLine("================================================================================")
         if (!identity.brand.isNullOrBlank() && !identity.model.isNullOrBlank()) {
             val osStr = if (!identity.androidRelease.isNullOrBlank()) {

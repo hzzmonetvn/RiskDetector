@@ -44,13 +44,9 @@ import com.eltavine.duckdetector.features.settings.presentation.model.SettingsUi
 import com.eltavine.duckdetector.features.settings.ui.components.AboutSection
 import com.eltavine.duckdetector.features.settings.ui.components.ConsentSettingItem
 import com.eltavine.duckdetector.features.settings.ui.components.ConsentPermissionButton
-import com.eltavine.duckdetector.features.settings.ui.components.ContributorNameWordmark
-import com.eltavine.duckdetector.features.settings.ui.components.ContributorsSection
 import com.eltavine.duckdetector.features.settings.ui.components.SettingsGroup
 import com.eltavine.duckdetector.features.settings.ui.components.SettingsSection
 import com.eltavine.duckdetector.features.settings.ui.components.SettingsSwitchItem
-import com.eltavine.duckdetector.features.settings.ui.components.UiStyleSettingItem
-import io.github.xiaotong6666.uihelper.adaptive.AdaptiveContent
 import io.github.xiaotong6666.uihelper.adaptive.NativeSettingsSegmentedGroup
 import io.github.xiaotong6666.uihelper.mode.LocalUiMode
 import io.github.xiaotong6666.uihelper.mode.UiMode
@@ -68,33 +64,16 @@ fun SettingsScreen(
     pageModifier: Modifier = Modifier,
 ) {
     val uiMode = LocalUiMode.current
-    AdaptiveContent(
-        miuix = {
-            SettingsMiuixPage(
-                uiState = uiState,
-                uiMode = uiMode,
-                consentToggles = consentToggles,
-                onCheckForUpdates = onCheckForUpdates,
-                onGitHubAccelerationChange = onGitHubAccelerationChange,
-                onUiModeChange = onUiModeChange,
-                onOpenLicenses = onOpenLicenses,
-                scaffoldPadding = scaffoldPadding,
-                pageModifier = pageModifier,
-            )
-        },
-        material = {
-            SettingsPage(
-                uiState = uiState,
-                uiMode = uiMode,
-                consentToggles = consentToggles,
-                onCheckForUpdates = onCheckForUpdates,
-                onGitHubAccelerationChange = onGitHubAccelerationChange,
-                onUiModeChange = onUiModeChange,
-                onOpenLicenses = onOpenLicenses,
-                modifier = modifier,
-                scaffoldPadding = scaffoldPadding,
-            )
-        },
+    SettingsPage(
+        uiState = uiState,
+        uiMode = uiMode,
+        consentToggles = consentToggles,
+        onCheckForUpdates = onCheckForUpdates,
+        onGitHubAccelerationChange = onGitHubAccelerationChange,
+        onUiModeChange = onUiModeChange,
+        onOpenLicenses = onOpenLicenses,
+        modifier = modifier,
+        scaffoldPadding = scaffoldPadding,
     )
 }
 
@@ -131,24 +110,6 @@ private fun SettingsPage(
                     .fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(24.dp),
             ) {
-                SettingsSection(title = stringResource(R.string.settings_section_appearance)) {
-                    val styleItems = listOf(
-                        stringResource(R.string.settings_style_miuix),
-                        stringResource(R.string.settings_style_material),
-                    )
-                    SettingsGroup {
-                        UiStyleSettingItem(
-                            title = stringResource(R.string.settings_ui_style_title),
-                            description = stringResource(R.string.settings_ui_style_description),
-                            items = styleItems,
-                            selectedIndex = if (uiMode == UiMode.Miuix) 0 else 1,
-                            onItemSelected = { index ->
-                                onUiModeChange(if (index == 0) UiMode.Miuix else UiMode.Material)
-                            },
-                        )
-                    }
-                }
-
                 if (consentToggles.isNotEmpty()) {
                     val managePermissions = consentToggles.firstNotNullOfOrNull { it.onManagePermissions }
                     SettingsSection(title = stringResource(R.string.settings_section_detection)) {
@@ -185,8 +146,6 @@ private fun SettingsPage(
                     onOpenLicenses = onOpenLicenses,
                 )
 
-                ContributorsSection()
-                ContributorNameWordmark()
                 Spacer(modifier = Modifier.height(20.dp))
             }
         }

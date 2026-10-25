@@ -42,19 +42,7 @@ class ScanProgressNotifier(
         permissionState: ScanNotificationPermissionState,
         snapshot: ScanProgressNotificationSnapshot,
     ) {
-        if (!permissionState.notificationsGranted) {
-            cancel()
-            return
-        }
-        createChannelIfNeeded()
-        val formatted = formatter.format(snapshot)
-        if (snapshot.scanning) {
-            NotificationManagerCompat.from(context).cancel(COMPLETION_NOTIFICATION_ID)
-            postScanningNotification(permissionState, snapshot, formatted)
-        } else {
-            NotificationManagerCompat.from(context).cancel(SCAN_NOTIFICATION_ID)
-            postCompletionNotification(formatted)
-        }
+        cancel()
     }
 
     fun cancel() {
@@ -162,7 +150,7 @@ class ScanProgressNotifier(
                 "Scan progress",
                 NotificationManager.IMPORTANCE_LOW,
             ).apply {
-                description = "Overall Duck Detector scan progress and final dashboard verdict."
+                description = "Overall Risk Detector scan progress and final dashboard verdict."
                 setShowBadge(false)
             },
         )

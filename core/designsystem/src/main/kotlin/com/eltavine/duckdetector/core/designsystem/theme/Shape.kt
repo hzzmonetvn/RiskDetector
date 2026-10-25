@@ -30,8 +30,14 @@ internal val Shapes: Shapes = Shapes(
     extraLarge = ContinuousCornerShape(28.dp),
 )
 
-/** Material Expressive shapes. Keep the legacy continuous shapes for MIUIX fallbacks. */
-internal val ExpressiveShapes: Shapes = Shapes()
+/** Material Expressive shapes with modern M3X corner radii. */
+internal val ExpressiveShapes: Shapes = Shapes(
+    extraSmall = RoundedCornerShape(4.dp),
+    small = RoundedCornerShape(8.dp),
+    medium = RoundedCornerShape(16.dp),
+    large = RoundedCornerShape(24.dp),
+    extraLarge = RoundedCornerShape(32.dp),
+)
 
 public object ShapeTokens {
     public val CornerMedium: CornerBasedShape = ContinuousCornerShape(12.dp)

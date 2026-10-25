@@ -35,29 +35,15 @@ data class ScanNotificationPermissionState(
 object ScanNotificationPermissions {
 
     fun read(context: Context): ScanNotificationPermissionState {
-        val notificationsGranted = hasNotificationPermission(context)
-        val liveUpdatesSupported = Build.VERSION.SDK_INT >= 36
-        val liveUpdatesGranted = if (liveUpdatesSupported) {
-            context.getSystemService(NotificationManager::class.java)
-                ?.canPostPromotedNotifications() == true
-        } else {
-            false
-        }
         return ScanNotificationPermissionState(
-            notificationsGranted = notificationsGranted,
-            liveUpdatesSupported = liveUpdatesSupported,
-            liveUpdatesGranted = liveUpdatesGranted,
+            notificationsGranted = false,
+            liveUpdatesSupported = false,
+            liveUpdatesGranted = false,
         )
     }
 
     fun hasNotificationPermission(context: Context): Boolean {
-        if (Build.VERSION.SDK_INT < 33) {
-            return true
-        }
-        return ContextCompat.checkSelfPermission(
-            context,
-            Manifest.permission.POST_NOTIFICATIONS,
-        ) == PackageManager.PERMISSION_GRANTED
+        return false
     }
 
     fun appNotificationSettingsIntent(context: Context): Intent {

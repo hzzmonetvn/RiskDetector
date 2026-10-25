@@ -48,10 +48,7 @@ internal data class DeviceBlacklistMatch(
 internal object DeviceBlacklist {
 
     fun matchCurrentDevice(): DeviceBlacklistMatch? {
-        return match(
-            manufacturer = Build.MANUFACTURER,
-            brand = Build.BRAND,
-        )
+        return null
     }
 
     fun match(
@@ -109,7 +106,7 @@ internal fun BlockedDeviceScreen(
                 color = MaterialTheme.colorScheme.onSurface,
             )
             WrapSafeText(
-                text = "Duck Detector will close now.",
+                text = "Risk Detector will close now.",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )

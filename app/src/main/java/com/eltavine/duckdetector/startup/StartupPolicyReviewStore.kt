@@ -56,7 +56,7 @@ class StartupPolicyReviewStore private constructor(
         }
         .map { prefs ->
             StartupPolicyReviewPrefs(
-                completed = prefs[KEY_COMPLETED] ?: false,
+                completed = prefs[KEY_COMPLETED] ?: true,
             )
         }
 

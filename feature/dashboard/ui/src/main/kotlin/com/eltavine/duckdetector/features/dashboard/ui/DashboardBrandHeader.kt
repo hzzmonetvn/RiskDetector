@@ -61,8 +61,6 @@ internal fun BrandHeader(showTitle: Boolean = true) {
             verticalAlignment = Alignment.CenterVertically,
         ) {
             MaterialAppIcon()
-            Spacer(modifier = Modifier.weight(1f))
-            DashboardTelegramAction()
         }
         if (showTitle) {
             WrapSafeText(

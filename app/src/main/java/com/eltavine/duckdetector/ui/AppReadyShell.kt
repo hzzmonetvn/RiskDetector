@@ -137,10 +137,7 @@ internal fun AppReadyShell(
     val updateViewModel: UpdateViewModel = viewModel(factory = updateFactory)
     val accelerationStore = remember(appContext) { GitHubAccelerationStore.getInstance(appContext) }
     val gitHubAcceleration by accelerationStore.acceleration.collectAsStateWithLifecycle(initialValue = null)
-    var accelerationOfferDismissed by rememberSaveable { mutableStateOf(false) }
-    val appLocale = LocalConfiguration.current.locales[0]
-    val offerGitHubAcceleration = !accelerationOfferDismissed &&
-        gitHubAcceleration?.let { shouldOfferGitHubAcceleration(it, appLocale) } == true
+    val offerGitHubAcceleration = false
     // Every detector session starts scanning when it is created, so the catalog order is the order
     // in which detector scans begin.
     val detectorSessions = DetectorFeatures.all.map { feature -> key(feature.id) { feature.rememberSession() } }
@@ -151,7 +148,7 @@ internal fun AppReadyShell(
     val visibleUpdate = updateUiState.availableUpdate.takeIf { updateUiState.isDialogVisible }
     val updateDialogPayload = rememberRetainedDialogPayload(visibleUpdate)
 
-    val automaticUpdateCheckReady = gitHubAcceleration != null && !offerGitHubAcceleration
+    val automaticUpdateCheckReady = false
     LaunchedEffect(updateViewModel, automaticUpdateCheckReady) {
         if (automaticUpdateCheckReady) {
             updateViewModel.checkAutomatically()
@@ -230,11 +227,8 @@ internal fun AppReadyShell(
         )
     }
 
-    LaunchedEffect(notificationPermissionState, notificationSnapshot) {
-        notifier.update(
-            permissionState = notificationPermissionState,
-            snapshot = notificationSnapshot,
-        )
+    LaunchedEffect(Unit) {
+        notifier.cancel()
     }
 
     // Keep one MIUIX navigation stack for both skins. The tab pager remains within Main,
@@ -258,8 +252,8 @@ internal fun AppReadyShell(
                     items = listOf(
                         NavigationShellItem(
                             title = stringResource(R.string.navigation_home),
-                            topBarTitle = "Duck Detector",
-                            compactTopBarTitle = "Duck Detector",
+                            topBarTitle = "Risk Detector",
+                            compactTopBarTitle = "Risk Detector",
                             icon = Icons.Outlined.HomeOutline,
                             selectedIcon = Icons.Rounded.Home,
                             leadingContent = { DashboardTopBarBrandIcon() },
@@ -268,10 +262,9 @@ internal fun AppReadyShell(
                                 Row(verticalAlignment = Alignment.CenterVertically) {
                                     DashboardTopBarBrandIcon()
                                     Spacer(modifier = Modifier.size(10.dp))
-                                    Text("Duck Detector", maxLines = 1, overflow = TextOverflow.Ellipsis)
+                                    Text("Risk Detector", maxLines = 1, overflow = TextOverflow.Ellipsis)
                                 }
                             },
-                            trailingContent = { DashboardTelegramAction() },
                         ),
                         NavigationShellItem(
                             title = stringResource(R.string.navigation_settings),
@@ -350,7 +343,7 @@ internal fun AppReadyShell(
                                         copy = { url ->
                                             copyPlainTextToClipboard(
                                                 context,
-                                                "Duck Detector APK",
+                                                "Risk Detector APK",
                                                 url,
                                                 fallbackCopiedConfirmation,
                                             )

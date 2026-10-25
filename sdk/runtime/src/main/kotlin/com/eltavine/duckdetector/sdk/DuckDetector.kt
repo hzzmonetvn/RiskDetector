@@ -41,7 +41,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 /**
- * Runs Duck Detector's detectors without any UI.
+ * Runs Risk Detector's detectors without any UI.
  *
  * Each detector collects on-device evidence and returns a [DetectorResult]: its verdict and the
  * structured report the application exports for the same evidence. Results are diagnostic

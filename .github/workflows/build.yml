@@ -282,34 +282,16 @@ jobs:
         env:
           APK_PATH: ${{ steps.metadata.outputs.apk_path }}
           BUILD_TOOLS: ${{ steps.toolchain.outputs.build-tools }}
-          EXPECTED_SIGNER_SHA256: ${{ steps.signing_fingerprint.outputs.sha256 }}
         run: |
           set -euo pipefail
 
           if [ -f "${APK_PATH}" ]; then
-            apksigner_output=$("${ANDROID_SDK_ROOT}/build-tools/${BUILD_TOOLS}/apksigner" verify --print-certs "${APK_PATH}")
-            printf '%s\n' "${apksigner_output}"
-
-            actual_sha256=$(APKSIGNER_OUTPUT="${apksigner_output}" python3 - <<'PY'
-            import os
-
-            output = os.environ.get("APKSIGNER_OUTPUT", "")
-            marker = "certificate SHA-256 digest:"
-            for raw_line in output.splitlines():
-                if marker not in raw_line or "Source Stamp" in raw_line:
-                    continue
-                digest = raw_line.split(marker, 1)[1].replace(":", "").strip().lower()
-                if digest:
-                    print(digest, end="")
-                    break
-            PY
-            )
-
-            if [ -n "${actual_sha256}" ] && [ "${actual_sha256}" != "${EXPECTED_SIGNER_SHA256}" ]; then
-              echo "Warning: APK signature ${actual_sha256} does not match expected ${EXPECTED_SIGNER_SHA256}"
-            else
-              echo "APK signature successfully verified."
-            fi
+            echo "Verifying APK signature for: ${APK_PATH}"
+            "${ANDROID_SDK_ROOT}/build-tools/${BUILD_TOOLS}/apksigner" verify --print-certs "${APK_PATH}"
+            echo "APK signature successfully verified."
+          else
+            echo "APK not found at ${APK_PATH}"
+            exit 1
           fi
 
       - name: Stage APK and SDK artifacts
@@ -322,10 +304,10 @@ jobs:
           mkdir -p "$staging_dir"
 
           echo "Searching for built APKs..."
-          find app/build/outputs/apk -type f -name "*.apk" ! -name "*-unaligned.apk" | while read -r apk_file; do
+          while IFS= read -r -d '' apk_file; do
             echo "Staging APK: $apk_file"
             cp "$apk_file" "$staging_dir/"
-          done
+          done < <(find app/build/outputs/apk -type f -name "*.apk" ! -name "*-unaligned.apk" -print0)
 
           aar_source="sdk/aar/build/outputs/aar/aar.aar"
           if [ -s "$aar_source" ]; then

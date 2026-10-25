@@ -95,8 +95,6 @@ import com.eltavine.duckdetector.features.update.domain.GitHubAcceleration
 import com.eltavine.duckdetector.features.update.domain.AvailableNightlyUpdate
 import com.eltavine.duckdetector.features.update.domain.UpdateInstallResult
 import com.eltavine.duckdetector.features.update.presentation.UpdateDownloadState
-import com.eltavine.duckdetector.features.update.presentation.shouldOfferGitHubAcceleration
-import com.eltavine.duckdetector.features.update.ui.GitHubAccelerationDialog
 import com.eltavine.duckdetector.features.update.ui.NightlyUpdateDialog
 import com.eltavine.duckdetector.features.update.ui.UpdateViewModel
 import com.eltavine.duckdetector.notifications.ScanProgressNotificationSnapshot
@@ -137,7 +135,6 @@ internal fun AppReadyShell(
     val updateViewModel: UpdateViewModel = viewModel(factory = updateFactory)
     val accelerationStore = remember(appContext) { GitHubAccelerationStore.getInstance(appContext) }
     val gitHubAcceleration by accelerationStore.acceleration.collectAsStateWithLifecycle(initialValue = null)
-    val offerGitHubAcceleration = false
     // Every detector session starts scanning when it is created, so the catalog order is the order
     // in which detector scans begin.
     val detectorSessions = DetectorFeatures.all.map { feature -> key(feature.id) { feature.rememberSession() } }
@@ -367,14 +364,6 @@ internal fun AppReadyShell(
                         else -> updateViewModel.downloadUpdate()
                     }
                 },
-            )
-        }
-
-        if (offerGitHubAcceleration) {
-            GitHubAccelerationDialog(
-                onEnable = { scope.launch { accelerationStore.setEnabled(true) } },
-                onDecline = { scope.launch { accelerationStore.setEnabled(false) } },
-                onDismiss = { accelerationOfferDismissed = true },
             )
         }
     }
